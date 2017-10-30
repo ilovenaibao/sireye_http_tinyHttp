@@ -472,6 +472,7 @@ int main(void) {
     while (1) {
         client_sock = accept(server_sock, (struct sockaddr *) &client_name,
                              &client_name_len);
+        printf("received a connection from %s:%u\n", inet_ntoa(client_name.sin_addr), ntohs(client_name.sin_port));
         if (client_sock == -1)
             error_die("accept");
         /* accept_request(client_sock); */
